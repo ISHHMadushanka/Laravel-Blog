@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
@@ -35,3 +36,6 @@ Route::get('/posts/{postId}/edit', [PostController::class, 'edit'])->name('posts
 Route::post('/posts/{postId}/update', [PostController::class, 'update'])->name('posts.update');
 
 Route::get('/posts/{postId}/delete', [PostController::class, 'delete'])->name('posts.delete');
+
+// Admin router
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware('admin')->name('admin.dashboard');
